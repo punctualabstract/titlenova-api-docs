@@ -4,8 +4,6 @@ from pygments.lexers.web import PhpLexer
 
 sys.path.append(os.path.abspath('_exts'))
 
-html_extra_path = ['_html']
-
 extensions = []
 master_doc = 'index'
 highlight_language = 'php'
