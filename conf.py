@@ -4,7 +4,7 @@ from pygments.lexers.web import PhpLexer
 
 sys.path.append(os.path.abspath('_exts'))
 
-html_static_path = ['_static', '_static/robots.txt']
+html_extra_path = ['robots.txt']
 
 extensions = []
 master_doc = 'index'
