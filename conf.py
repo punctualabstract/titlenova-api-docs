@@ -14,7 +14,5 @@ copyright = u'2020 Punctual Abstract'
 version = '0'
 release = '0.0.1'
 
-html_extra_path = 'html'
-
 lexers['php'] = PhpLexer(startinline=True)
 
