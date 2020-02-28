@@ -1,10 +1,22 @@
 Authentication
 ==============
 
-Get Authentication Token
-------------------------
+The authentication API utilizes a custom token-based authentication that requires any client application
+to request authentication and maintain the provided auth and refresh tokens that are returned. Any subsequent
+requests to any TitleNova API will require the auth token to be provide in the ``Authorization`` header as
+a bearer token:
 
-To authenticate a user and get an auth token, a `POST` call can be made with a `username` and `password` value:
+.. code-block:: bash
+
+    Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093
+
+Once the token expires, the client application will ask for a new (or refreshed) auth token using the provided
+refresh token, as outlined below.
+
+Get the Authentication Token
+----------------------------
+
+To authenticate a user and get an auth token, a ``POST`` call can be made with a ``username`` and ``password`` value:
 
 .. code-block:: bash
 
@@ -25,14 +37,14 @@ That returned response will return the following payload with the token and othe
         "password_expires": "2020-04-07 15:42:09"
     }
 
-The refresh token is essential to maintaining a valid session. The `expires` value is a UNIX timestamp
+The refresh token is essential to maintaining a valid session. The ``expires`` value is a UNIX timestamp
 that designates when the token will expire. Once the token expires, any requests made with it will result
-in a `401 Unauthorized` response.
+in a ``401 Unauthorized`` response.
 
 Refresh the Authentication Token
 --------------------------------
 
-When a client application needs to obtain a new authentication token, a request can be made via `POST`
+When a client application needs to obtain a new authentication token, a request can be made via ``POST``
 using the expired authentication token and the refresh token that was returned on the initial
 authentication request:
 
@@ -55,7 +67,7 @@ The response will be returned with a new authentication token and expiration val
 Validate the Authentication Token
 ---------------------------------
 
-To validate the authentication token and verify if it has expired or not, the following `POST`
+To validate the authentication token and verify if it has expired or not, the following ``POST``
 request can be made:
 
 .. code-block:: bash
@@ -64,7 +76,7 @@ request can be made:
         --header "Authorization: Bearer b8baba77fbddadec73ab84e08b81bc779219341e" \
         https://auth.titlenova.com/token
 
-and, if valid, a `200 OK` response will be returned with a JSON payload containing the basic user
+and, if valid, a ``200 OK`` response will be returned with a JSON payload containing the basic user
 and token information:
 
 .. code-block:: json
@@ -81,7 +93,7 @@ and token information:
         "scope_updated": null
     }
 
-If the token is not valid, a `401 Unauthorized` will be returned.
+If the token is not valid, a ``401 Unauthorized`` will be returned.
 
 Authorize a User
 ----------------
@@ -89,7 +101,7 @@ Authorize a User
 Once a user’s identity is authenticated, the API provides an end point to allow client applications
 to authorize a user’s request for permission to perform an action on a resource. A user may be
 authenticated, but may not have permission to, for example, create other users. If that is the case,
-a `403 Forbidden` response would be returned.
+a ``403 Forbidden`` response would be returned.
 
 Authorization of a user is also a way to perform both a token validation and an user authorization at
 the same time. For flexibility, there are 3 different ways to authorize a user with the authorization
@@ -125,7 +137,7 @@ endpoint via a POST request:
         https://auth.titlenova.com/authorize
 
 All 3 of the above requests will yield the same response. If the token is valid and user is authorized
-to create users, the response will be a `200 OK` and include a JSON payload describing the user:
+to create users, the response will be a ``200 OK`` and include a JSON payload describing the user:
 
 .. code-block:: json
 
@@ -143,7 +155,7 @@ to create users, the response will be a `200 OK` and include a JSON payload desc
         }
     }
 
-However, the user is not authorized to create users, the response will be a `403 Forbidden`:
+However, the user is not authorized to create users, the response will be a ``403 Forbidden``:
 
 .. code-block:: json
 
@@ -157,7 +169,7 @@ However, the user is not authorized to create users, the response will be a `403
         "message": "Forbidden"
     }
 
-And if the token is not valid, the response will be a `401 Unauthorized`:
+And if the token is not valid, the response will be a ``401 Unauthorized``:
 
 .. code-block:: json
 
@@ -172,12 +184,12 @@ And if the token is not valid, the response will be a `401 Unauthorized`:
     }
 
 If no resource or permission is provided on the request, then the authorization end point will only
-validate the token and return a `200 OK` or a `401 Unauthorized`, depending on whether the token is valid.
+validate the token and return a ``200 OK`` or a ``401 Unauthorized``, depending on whether the token is valid.
 
 Revoke the Authentication Token
 -------------------------------
 
-To end a user’s session, or log them out, a revoke request is issued via `POST`:
+To end a user’s session, or log them out, a revoke request is issued via ``POST``:
 
 .. code-block:: bash
 
@@ -186,4 +198,4 @@ To end a user’s session, or log them out, a revoke request is issued via `POST
         https://auth.titlenova.com/token/revoke
 
 If the token is valid, it would be deleted, rendering it no longer valid for any further requests.
-A successful response from revoking the token will be a `204 No Content`.
+A successful response from revoking the token will be a ``204 No Content``.

@@ -10,7 +10,16 @@ You can check the version of the authentication API at any time with the followi
 
 .. code-block:: bash
 
-    curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" http://auth.titlenova/version
+    curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
+        http://auth.titlenova/version
+
+The above request will return the following response:
+
+.. code-block:: json
+
+    {
+        "version": "0.0.3"
+    }
 
 .. toctree::
     :maxdepth: 1
