@@ -3,8 +3,8 @@ Authentication & Authorization
 
 The authentication API utilizes a custom token-based authentication that requires any client application
 to request authentication and maintain the provided auth and refresh tokens that are returned. Any subsequent
-requests to any TitleNova API will require the auth token to be provide in the ``Authorization`` header as
-a bearer token:
+requests to any TitleNova API applications will require the auth token to be provide in the ``Authorization``
+header as a bearer token:
 
 .. code-block:: bash
 
@@ -37,9 +37,9 @@ That returned response will return the following payload with the token and othe
         "password_expires": "2020-04-07 15:42:09"
     }
 
-The refresh token is essential to maintaining a valid session. The ``expires`` value is a UNIX timestamp
-that designates when the token will expire. Once the token expires, any requests made with it will result
-in a ``401 Unauthorized`` response.
+Both the auth and refresh tokens are essential to maintaining a valid session. The ``expires`` value is a
+UNIX timestamp that designates when the auth token will expire. Once the token expires, any requests made with
+it will result in a ``401 Unauthorized`` response.
 
 Refresh the Authentication Token
 --------------------------------
@@ -54,7 +54,7 @@ authentication request:
         -d"refresh=93ef615b4b6968802411a96b898af50ef9fa0ec1" \
         https://auth.titlenova.com/token/refresh
 
-The response will be returned with a new authentication token and expiration value:
+The response will be returned with a new authentication token and new expiration value:
 
 .. code-block:: json
 
@@ -185,6 +185,34 @@ And if the token is not valid, the response will be a ``401 Unauthorized``:
 
 If no resource or permission is provided on the request, then the authorization end point will only
 validate the token and return a ``200 OK`` or a ``401 Unauthorized``, depending on whether the token is valid.
+
+**Automatic Authorization**
+
+It is not necessary to explicitly authorize the user for each request to any TitleNova API endpoints. The
+above ``/authorize`` endpoint is made available only if there is a need to explicitly check if a user has
+a certain permission. Outside of that, user authorization is done automatically based on the resource and
+action the request is trying to access. For example, consider the following request being made to the users
+API to index (or list) profiles:
+
+.. code-block:: bash
+
+    curl -i -X GET \
+        --header "Authorization: Bearer b8baba77fbddadec73ab84e08b81bc779219341e" \
+        https://users.titlenova.com/profiles
+
+If the user is currently denied access to index profiles, the response will return a ``403 Forbidden``:
+
+.. code-block:: json
+
+    HTTP/1.1 403 Forbidden
+    Date: Fri, 31 Jan 2020 23:19:21 GMT
+    Content-Length: 49
+    Content-Type: application/json
+
+    {
+        "code": 403,
+        "message": "Forbidden"
+    }
 
 Revoke the Authentication Token
 -------------------------------
