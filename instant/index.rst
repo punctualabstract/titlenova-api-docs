@@ -1,5 +1,5 @@
-Instant Search
-==============
+Instant Search API
+==================
 
 .. toctree::
     :maxdepth: 1

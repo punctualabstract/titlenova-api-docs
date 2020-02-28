@@ -1,5 +1,5 @@
-Logging
-=======
+Logging API
+===========
 
 .. toctree::
     :maxdepth: 1

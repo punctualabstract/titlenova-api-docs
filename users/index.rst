@@ -1,5 +1,5 @@
-Users
-=====
+Users API
+=========
 
 .. toctree::
     :maxdepth: 1

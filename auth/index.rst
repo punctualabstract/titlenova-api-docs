@@ -1,5 +1,5 @@
-Auth
-====
+Auth API
+========
 
 The authentication API is a centralized authentication and authorization API with which all TitleNova
 applications interact to request and maintain a valid authenticated session. The authentication API
