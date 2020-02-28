@@ -1,5 +1,5 @@
-Authentication
-==============
+Authentication & Authorization
+==============================
 
 The authentication API utilizes a custom token-based authentication that requires any client application
 to request authentication and maintain the provided auth and refresh tokens that are returned. Any subsequent

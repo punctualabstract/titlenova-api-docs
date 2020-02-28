@@ -1,5 +1,5 @@
-Authentication
-==============
+Auth
+====
 
 The authentication API is a centralized authentication and authorization API with which all TitleNova
 applications interact to request and maintain a valid authenticated session. The authentication API
@@ -24,7 +24,7 @@ The above request will return the following response:
 .. toctree::
     :maxdepth: 1
 
-    authentication
+    auth
     users
     roles
     resources
