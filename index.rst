@@ -9,7 +9,7 @@ the links below to get started.
     :maxdepth: 2
 
     overview
-    authentication/index
+    auth/index
     logging/index
     storage/index
     users/index
