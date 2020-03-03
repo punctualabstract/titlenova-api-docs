@@ -2,16 +2,15 @@ Users
 =====
 
 The user data stored under the authentication API is only the pertinent data that is
-associated with user authentication. All other user data (names, contacts, etc.) is
-stored in the user API.
+associated with user authentication. *All other user data (names, profiles, contacts, etc.)
+is stored in the user API.*
 
 Create a User
 -------------
 
 At a minimum, a new user requires a ``username`` and a ``password``, along with at least
 one valid ``role_id``. A user cannot be granted access to any system unless they have a valid
-role associated with them to evaluate their access level. *Please note, users can have more
-than one role.*
+role associated with them to evaluate their level of access. *Users can have more than one role.*
 
 To create a user, send a ``POST`` request with the following payload to the users endpoint:
 
@@ -34,12 +33,14 @@ be reused until 4 other passwords have be used.
 
 Accepted user fields include:
 
-* ``username``         *(the user's username)*
-* ``password``         *(a string that will be converted into a one-way hash)*
-* ``active``           *(a 0 or 1 boolean value)*
-* ``attempts``         *(number of failed authentication attempts)*
-* ``password_expires`` *(a datetime value)*
-* ``metadata``         *(an optional array of additional user data)*
++----------------------+-------------------------------------------------------+
+| ``username``         | *the user's username*                                 |
+| ``password``         | *a string that will be converted into a one-way hash* |
+| ``active``           | *a 0 or 1 boolean value*                              |
+| ``attempts``         | *number of failed authentication attempts*            |
+| ``password_expires`` | *a datetime value*                                    |
+| ``metadata``         | *an optional array of additional user data*           |
++----------------------+-------------------------------------------------------+
 
 Validate a User
 ---------------
