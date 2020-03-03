@@ -17,5 +17,5 @@ utilized within the TitleNova ecosystem supports both JSON and XML requests and 
 to achieve compatibility with other external application systems for integration purposes.
 
 For the examples given in the documentation below, cURL is used as a simple example, but any basic
-client, such as Postman, should work to execute the examples.
+client, such as **Postman**, should work to execute the examples as well.
 
