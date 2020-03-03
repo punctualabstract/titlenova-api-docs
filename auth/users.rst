@@ -18,7 +18,7 @@ To create a user, send a ``POST`` request with the following payload to the user
 .. code-block:: bash
 
     curl -i -X POST --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        -d"username=admin2&password=123456&role_ids[]=1" http://auth.titlenova/users
+        -d"username=admin2&password=123456&role_ids[]=1" https://auth.titlenova.com/users
 
 A user's ``username`` and ``password`` must also meet certain criteria. The username must be
 at least 6 characters long and not contain a space. The password must meet 3 of the following
@@ -51,7 +51,7 @@ Before submitting the request to create (or update) a user, you can validate a u
 .. code-block:: bash
 
     curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        http://auth.titlenova/users/exists?username=admin
+        https://auth.titlenova.com/users/exists?username=admin
 
 The above request returns the following ``JSON`` response to let you know if the username exists or not:
 
@@ -69,7 +69,7 @@ request can be sent to this endpoint:
 .. code-block:: bash
 
     curl -i -X POST --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        -d"username=admin&password=123456" http://auth.titlenova/users/validate
+        -d"username=admin&password=123456" https://auth.titlenova.com/users/validate
 
 which will return a response outlining any issues with the attempted credentials:
 
@@ -102,7 +102,7 @@ This takes into account the existing user's current username and excludes it fro
 .. code-block:: bash
 
     curl -i -X POST --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        -d"username=admin&password=123456" http://auth.titlenova/users/validate/1
+        -d"username=admin&password=123456" https://auth.titlenova.com/users/validate/1
 
 Update an Existing User
 -----------------------
@@ -112,7 +112,7 @@ To update an existing user, send a ``PATCH`` request with the following payload 
 .. code-block:: bash
 
     curl -i -X PATCH --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        -d"active=1&role_ids[]=2" http://auth.titlenova/users/1
+        -d"active=1&role_ids[]=2" https://auth.titlenova.com/users/1
 
 Upon a successful update, the response will return a ``JSON`` payload with the user's updated data:
 
@@ -142,7 +142,7 @@ token with the following request:
 .. code-block:: bash
 
     curl -i -X DELETE --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        http://auth.titlenova/users/revoke/2
+        https://auth.titlenova.com/users/revoke/2
 
 Deleting Users
 --------------
@@ -152,13 +152,13 @@ Deleting Users
 .. code-block:: bash
 
     curl -i -X DELETE --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        http://auth.titlenova/users/2
+        https://auth.titlenova.com/users/2
 
 **Deleting multiple users**
 
 .. code-block:: bash
 
     curl -i -X DELETE --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        -d"rm_users[]=4&rm_users[]=5&rm_users[]=6" http://auth.titlenova/users/
+        -d"rm_users[]=4&rm_users[]=5&rm_users[]=6" https://auth.titlenova.com/users/
 
 
