@@ -5,6 +5,167 @@ The user data stored under the authentication API is only the pertinent data tha
 associated with user authentication. *All other user data (names, profiles, contacts, etc.)
 is stored in the user API.*
 
+
+Listing Users
+-------------
+
+To list the users currently in the system, use the following ``GET`` request:
+
+.. code-block:: bash
+
+    curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
+        http://auth.titlenova/users
+
+The ``JSON`` response returned will look like:
+
+.. code-block:: json
+
+    {
+        "page": null,
+        "limit": null,
+        "sort": null,
+        "filter": null,
+        "users": [
+            {
+                "id": 1,
+                "username": "admin",
+                "active": 1,
+                "attempts": 0,
+                "password_expires": "2020-06-01 10:41:39",
+                "metadata": [],
+                "roles": [
+                    {
+                        "id": 1,
+                        "role": "Admin"
+                    }
+                ]
+            }
+        ],
+        "user_count": 1,
+        "user_fields": [
+            "id",
+            "username",
+            "active",
+            "attempts",
+            "password_expires",
+            "metadata"
+        ]
+    }
+
+The returned response not only gives you an array of ``users``, but also returns other pertinent
+information regarding the request. In addition to the above request, you can pass some parameters
+to fine-tune your request:
+
++-------------+-----------------------------------------------------------------------------------------------+
+| **page**    | a page number from which to start the result set                                              |
++-------------+-----------------------------------------------------------------------------------------------+
+| **limit**   | a value by which to limit the result set                                                      |
++-------------+-----------------------------------------------------------------------------------------------+
+| **sort**    | a flag to sort by a particular field. For example, ``username`` or ``-username`` to sort DESC |
++-------------+-----------------------------------------------------------------------------------------------+
+| **filter**  | a SQL-like filter string. For example, ``username LIKE ad%``                                  |
++-------------+-----------------------------------------------------------------------------------------------+
+| **fields**  | a comma-separated list of fields to limit which fields are selected                           |
++-------------+-----------------------------------------------------------------------------------------------+
+| **role_id** | a value to filter the result set by a certain role                                            |
++-------------+-----------------------------------------------------------------------------------------------+
+
+.. code-block:: bash
+
+    curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
+        "http://auth.titlenova/users?page=1&limit=25&sort=-id&filter[]=username%20LIKE%20ad%"
+
+The returned response would be:
+
+.. code-block:: json
+
+    {
+        "page": 1,
+        "limit": 25,
+        "sort": "-id",
+        "filter": [
+            "username LIKE ad%"
+        ],
+        "users": [
+            {
+                "id": 1,
+                "username": "admin",
+                "active": 1,
+                "attempts": 0,
+                "password_expires": "2020-06-01 10:41:39",
+                "metadata": [],
+                "roles": [
+                    {
+                        "id": 1,
+                        "role": "Admin"
+                    }
+                ]
+            }
+        ],
+        "user_count": 1,
+        "user_fields": [
+            "id",
+            "username",
+            "active",
+            "attempts",
+            "password_expires",
+            "metadata"
+        ]
+    }
+
+There is also a method to return the number of users in the system:
+
+.. code-block:: bash
+
+    curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
+        http://auth.titlenova/users/count
+
+.. code-block:: json
+
+    {
+        "filter": null,
+        "user_count": 1
+    }
+
+That method also supports the above request parameters of ``filter`` and ``role_id``:
+
+.. code-block:: bash
+
+    curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
+        "http://auth.titlenova/users/count?filter[]=username%20LIKE%20ad%&filter[]=active%20%3D%201"
+
+.. code-block:: json
+
+    {
+        "filter": [
+            "username LIKE ad%",
+            "active = 1"
+        ],
+        "user_count": 1
+    }
+
+And to determine what fields are available for the ``users`` resources, use the following request:
+
+.. code-block:: bash
+
+    curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
+        http://auth.titlenova/users/fields
+
+.. code-block:: json
+
+    {
+        "user_fields": [
+            "id",
+            "username",
+            "active",
+            "attempts",
+            "password_expires",
+            "metadata"
+        ]
+    }
+
+*(Note: The password field and its value is intentionally omitted from any user result set.)*
+
 Create a User
 -------------
 
