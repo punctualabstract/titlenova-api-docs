@@ -18,26 +18,20 @@ To list a single resource in the system, use the following ``GET`` request:
 .. code-block:: bash
 
     curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        http://auth.titlenova/resources/1
+        http://auth.titlenova/resources/2
 
 The ``JSON`` response returned will look like:
 
 .. code-block:: json
 
     {
-        "id": 1,
-        "resource": "users",
+        "id": 2,
+        "resource": "roles",
         "actions": [
             "index",
-            "count",
-            "fields",
             "create",
             "update",
-            "delete",
-            "history",
-            "exists",
-            "validate",
-            "revoke"
+            "delete"
         ]
     }
 
@@ -251,11 +245,11 @@ Create a resource with the following ``POST`` request:
 
 Accepted resource fields include:
 
-+--------------+---------------------------------------------------------------------------+
-| **resource** | the name of the resource                                                  |
-+--------------+---------------------------------------------------------------------------+
-| **actions**  | an array of string values that describe the action to perform on resource |
-+--------------+---------------------------------------------------------------------------+
++--------------+--------------------------------------------------------------------------------+
+| **resource** | the name of the resource                                                       |
++--------------+--------------------------------------------------------------------------------+
+| **actions**  | an array of string values that describe the actions to perform on the resource |
++--------------+--------------------------------------------------------------------------------+
 
 Update an Existing Resource
 ---------------------------
