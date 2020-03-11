@@ -5,7 +5,6 @@ The user data stored under the authentication API is only the pertinent data tha
 associated with user authentication. *All other user data (names, profiles, contacts, etc.)
 is stored in the user API.*
 
-
 Listing Users
 -------------
 
@@ -182,6 +181,25 @@ To create a user, send a ``POST`` request with the following payload to the user
 
     curl -i -X POST --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
         -d"username=admin2&password=123456&role_ids[]=1" https://auth.titlenova.com/users
+
+The above request wil return a ``JSON`` response for the newly created user:
+
+.. code-block:: json
+
+    {
+        "id": 2,
+        "username": "admin2",
+        "active": 0,
+        "attempts": 0,
+        "password_expires": "2020-06-09 15:12:44",
+        "metadata": [],
+        "roles": [
+            {
+                "id": 1,
+                "role": "Admin"
+            }
+        ]
+    }
 
 A user's ``username`` and ``password`` must also meet certain criteria. The username must be
 at least 6 characters long and not contain a space. The password must meet 3 of the following
