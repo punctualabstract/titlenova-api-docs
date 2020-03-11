@@ -70,8 +70,8 @@ to fine-tune your request:
 | **role_id** | a value to filter the result set by a certain role                                            |
 +-------------+-----------------------------------------------------------------------------------------------+
 
-*(The **page** value is meant to be utilized in conjunction with the **limit** value, and the "length" of the
-"pages" is calculated by the **limit** value.)*
+*(The "page" value is meant to be utilized in conjunction with the "limit" value, and the length of the
+page is calculated by the limit value.)*
 
 .. code-block:: bash
 
