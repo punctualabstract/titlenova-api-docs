@@ -9,7 +9,24 @@ permissions of their parent role.
 List Roles
 ----------
 
-To list the roles currently in the system, use the following ``GET`` request:
+To list a single role in the system, use the following ``GET`` request:
+
+.. code-block:: bash
+
+    curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
+        http://auth.titlenova/roles/1
+
+The ``JSON`` response returned will look like:
+
+.. code-block:: json
+
+    {
+        "id": 1,
+        "parent_id": null,
+        "role": "Admin"
+    }
+
+To list all of the roles currently in the system, use the following ``GET`` request:
 
 .. code-block:: bash
 
@@ -189,14 +206,14 @@ Upon a successful update, the response will return a ``JSON`` payload with the r
 Deleting Roles
 --------------
 
-**Deleting a single user**
+**Deleting a single role**
 
 .. code-block:: bash
 
     curl -i -X DELETE --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
         http://auth.titlenova/roles/2
 
-**Deleting multiple users**
+**Deleting multiple roles**
 
 .. code-block:: bash
 

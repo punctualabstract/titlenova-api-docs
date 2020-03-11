@@ -8,7 +8,33 @@ is stored in the user API.*
 Listing Users
 -------------
 
-To list the users currently in the system, use the following ``GET`` request:
+To list a single user in the system, use the following ``GET`` request:
+
+.. code-block:: bash
+
+    curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
+        http://auth.titlenova/users/1
+
+The ``JSON`` response returned will look like:
+
+.. code-block:: json
+
+    {
+        "id": 1,
+        "username": "admin",
+        "active": 1,
+        "attempts": 0,
+        "password_expires": "2020-06-01 10:41:39",
+        "metadata": [],
+        "roles": [
+            {
+                "id": 1,
+                "role": "Admin"
+            }
+        ]
+    }
+
+To list all of the users currently in the system, use the following ``GET`` request:
 
 .. code-block:: bash
 
