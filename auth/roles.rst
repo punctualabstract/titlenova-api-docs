@@ -3,7 +3,7 @@ Roles
 
 Roles are defined and associated to users which allows the ACL feature of the API to evaluate
 whether or not the user has permission to access or modify the requested resource. Users can
-be assigned multiple roles. Also, roles can have parent roles, in which case they inherit the
+be assigned multiple roles. Also, a role can have a parent role, in which case they inherit the
 permissions of their parent role.
 
 List Roles
@@ -122,7 +122,7 @@ That method also supports the above request ``filter`` parameter:
         "role_count": 1
     }
 
-And to determine what fields are available for the ``roles`` resources, use the following request:
+And to determine what fields are available for the ``roles`` resource, use the following request:
 
 .. code-block:: bash
 
@@ -143,6 +143,8 @@ And to determine what fields are available for the ``roles`` resources, use the 
 Create a Role
 -------------
 
+Create a role with the following ``POST`` request:
+
 .. code-block:: bash
 
     curl -i -X POST --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
@@ -156,11 +158,11 @@ Create a Role
         "role": "Editor"
     }
 
-Accepted roles fields include:
+Accepted role fields include:
 
 +---------------+-----------------------------------------------+
 | **parent_id** | the ID of a role's parent role (not required) |
-+----------------------+----------------------------------------+
++---------------+-----------------------------------------------+
 | **role**      | the name of the role                          |
 +---------------+-----------------------------------------------+
 

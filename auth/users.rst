@@ -146,7 +146,7 @@ That method also supports the above request parameters of ``filter`` and ``role_
         "user_count": 1
     }
 
-And to determine what fields are available for the ``users`` resources, use the following request:
+And to determine what fields are available for the ``users`` resource, use the following request:
 
 .. code-block:: bash
 
