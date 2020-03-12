@@ -29,3 +29,4 @@ The above request will return the following response:
     roles
     resources
     scope
+    tokens
