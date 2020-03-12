@@ -1,6 +1,16 @@
 Auth API
 ========
 
+.. toctree::
+    :maxdepth: 1
+
+    auth
+    users
+    roles
+    resources
+    scope
+    tokens
+
 The authentication API is a centralized authentication and authorization API with which all TitleNova
 applications interact to request and maintain a valid authenticated session. The authentication API
 utilizes a custom token-based authentication system that enforces not only authentication
@@ -20,13 +30,3 @@ The above request will return the following response:
     {
         "version": "0.0.3"
     }
-
-.. toctree::
-    :maxdepth: 1
-
-    auth
-    users
-    roles
-    resources
-    scope
-    tokens

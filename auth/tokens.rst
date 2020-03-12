@@ -167,7 +167,7 @@ That method also supports the above request parameters of ``filter`` and ``user_
 .. code-block:: bash
 
     curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        "http://auth.titlenova/tokens/count?user_id=1&filter[]=username%20LIKE%20ad%"
+        "http://auth.titlenova/tokens/count?filter[]=username%20LIKE%20ad%"
 
 .. code-block:: json
 
