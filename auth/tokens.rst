@@ -9,7 +9,7 @@ List Tokens
 
 To list information about a single token in the system, use the following ``GET`` request:
 
-**Endpoint** ``https://auth.titlenova.com/tokens/<token>``
+**Endpoint:** ``https://auth.titlenova.com/tokens/<token>``
 
 .. code-block:: bash
 
@@ -210,7 +210,7 @@ Deleting a Token
 
 **Deleting a token**
 
-**Endpoint** ``https://auth.titlenova.com/tokens/<token>``
+**Endpoint:** ``https://auth.titlenova.com/tokens/<token>``
 
 .. code-block:: bash
 

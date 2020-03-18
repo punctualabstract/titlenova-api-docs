@@ -10,7 +10,7 @@ Listing Users
 
 To list a single user in the system, use the following ``GET`` request:
 
-**Endpoint** ``https://auth.titlenova.com/users/<id>``
+**Endpoint:** ``https://auth.titlenova.com/users/<id>``
 
 .. code-block:: bash
 
@@ -325,7 +325,7 @@ Update an Existing User
 
 To update an existing user, send a ``PATCH`` request with the following payload to the users endpoint:
 
-**Endpoint** ``https://auth.titlenova.com/users/<id>``
+**Endpoint:** ``https://auth.titlenova.com/users/<id>``
 
 .. code-block:: bash
 
@@ -357,7 +357,7 @@ Revoking a User
 If a user that should not have access has gained access to any of the systems, you can revoke that user's
 token with the following request:
 
-**Endpoint** ``https://auth.titlenova.com/users/revoke/<id>``
+**Endpoint:** ``https://auth.titlenova.com/users/revoke/<id>``
 
 .. code-block:: bash
 
@@ -369,7 +369,7 @@ Deleting Users
 
 **Deleting a single user**
 
-**Endpoint** ``https://auth.titlenova.com/users/<id>``
+**Endpoint:** ``https://auth.titlenova.com/users/<id>``
 
 .. code-block:: bash
 

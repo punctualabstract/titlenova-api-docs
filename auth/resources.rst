@@ -15,7 +15,7 @@ List Resources
 
 To list a single resource in the system, use the following ``GET`` request:
 
-**Endpoint** ``https://auth.titlenova.com/resources/<id>``
+**Endpoint:** ``https://auth.titlenova.com/resources/<id>``
 
 .. code-block:: bash
 
@@ -258,7 +258,7 @@ Update an Existing Resource
 
 To update an existing resource, send a ``PATCH`` request with the following payload to the resources endpoint:
 
-**Endpoint** ``https://auth.titlenova.com/resources/<id>``
+**Endpoint:** ``https://auth.titlenova.com/resources/<id>``
 
 .. code-block:: bash
 
@@ -289,7 +289,7 @@ Deleting Resources
 
 **Deleting a single resource**
 
-**Endpoint** ``https://auth.titlenova.com/resources/<id>``
+**Endpoint:** ``https://auth.titlenova.com/resources/<id>``
 
 .. code-block:: bash
 
