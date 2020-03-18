@@ -284,7 +284,7 @@ Adding to Scope
 
 To add to a role or user scope, use a ``PATCH`` request to the following endpoints, respectively:
 
-**Endpoints:**
+| **Endpoints:**
 | ``https://auth.titlenova.com/scope/role/<id>``
 | ``https://auth.titlenova.com/scope/user/<id>``
 
@@ -335,10 +335,9 @@ Clearing Scope
 You can clear all scope rules for a role or user by submitting a ``DELETE`` request to these end points,
 respectively:
 
-**Endpoints**
-
-``https://auth.titlenova.com/scope/user/<id>``
-``https://auth.titlenova.com/scope/role/<id>``
+| **Endpoints**
+| ``https://auth.titlenova.com/scope/user/<id>``
+| ``https://auth.titlenova.com/scope/role/<id>``
 
 .. code-block:: bash
 
