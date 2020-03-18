@@ -7,15 +7,17 @@ scope on a broader role-level or on a more granular user-level.
 
 **Please note:** *By default, all users and roles are denied everything unless there is an explicit scope rule added.*
 
-Get a User's Scope
-------------------
+Get a Role Scope
+----------------
 
 To obtain the current user's scope,  send the following ``GET`` request:
+
+**Endpoint:** ``https://auth.titlenova.com/scope/role/<id>``.
 
 .. code-block:: bash
 
     curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        https://auth.titlenova.com/scope
+        https://auth.titlenova.com/scope/role/1
 
 and the ``JSON`` payload below will be returned:
 
@@ -56,14 +58,88 @@ and the ``JSON`` payload below will be returned:
         }
     }
 
-You can view the scope as a more "flat" model by passing the ``?flat=1`` query parameter:
+You can view the scope as a more "flat" model by passing the ``flat=1`` query parameter:
+
+.. code-block:: bash
+
+    curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
+        https://auth.titlenova.com/scope/role/1?flat=1
+
+and the ``JSON`` response will look like:
+
+.. code-block:: json
+
+    {
+        "scope": {
+            "1": {
+                "id": 1,
+                "role_id": 1,
+                "role": "Admin",
+                "resource_id": 1,
+                "resource": "users",
+                "action": "index",
+                "permission": 1
+            },
+            "2": {
+                "id": 2,
+                "role_id": 1,
+                "role": "Admin",
+                "resource_id": 1,
+                "resource": "users",
+                "action": "count",
+                "permission": 1
+            },
+            "3": {
+                "id": 3,
+                "role_id": 1,
+                "role": "Admin",
+                "resource_id": 1,
+                "resource": "users",
+                "action": "fields",
+                "permission": 1
+            }
+        }
+    }
+
+Get a User Scope
+----------------
+
+To obtain the current user's scope, send the following ``GET`` request:
+
+.. code-block:: bash
+
+    curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
+        https://auth.titlenova.com/scope
+
+and the ``JSON`` payload below will be returned:
+
+.. code-block:: json
+
+    {
+        "scope": {
+            "users": {
+                "index": true,
+                "count": true,
+                "fields": true,
+                "create": true,
+                "update": true,
+                "delete": true,
+                "history": true,
+                "exists": true,
+                "validate": true,
+                "revoke": true
+            }
+        }
+    }
+
+You can view the scope as a more "flat" model by passing the ``flat=1`` query parameter:
 
 .. code-block:: bash
 
     curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
         https://auth.titlenova.com/scope?flat=1
 
-and the ``JSON`` response will lok like:
+and the ``JSON`` response will look like:
 
 .. code-block:: json
 
