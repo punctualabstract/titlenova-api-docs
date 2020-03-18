@@ -335,7 +335,7 @@ Clearing Scope
 You can clear all scope rules for a role or user by submitting a ``DELETE`` request to these end points,
 respectively:
 
-| **Endpoints**
+| **Endpoints:**
 | ``https://auth.titlenova.com/scope/user/<id>``
 | ``https://auth.titlenova.com/scope/role/<id>``
 
