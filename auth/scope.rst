@@ -10,7 +10,7 @@ scope on a broader role-level or on a more granular user-level.
 Get a Role Scope
 ----------------
 
-To obtain the current user's scope,  send the following ``GET`` request:
+To obtain a role's scope, send the following ``GET`` request:
 
 **Endpoint:** ``https://auth.titlenova.com/scope/role/<id>``.
 
@@ -104,7 +104,8 @@ and the ``JSON`` response will look like:
 Get a User Scope
 ----------------
 
-To obtain the current user's scope, send the following ``GET`` request:
+To obtain the current user's scope (based on the current valid auth token), send the following
+``GET`` request:
 
 .. code-block:: bash
 
@@ -214,7 +215,8 @@ The ``all`` parameter also works in conjunction with the ``flat`` parameter:
         }
     }
 
-To obtain another user's scope, the same ``GET`` requests and parameters are available at this end point:
+To obtain another user's scope based on user ID, the same ``GET`` requests and parameters are available
+at this end point:
 
 **Endpoint:** ``https://auth.titlenova.com/scope/user/<id>``.
 
@@ -269,23 +271,22 @@ Upon success, the ``JSON`` payload returned will look like this:
 Create User Scope
 -----------------
 
-User scope can be created in the same method as outlined above using a ``PUT`` request. The endpoint is:
+User scope can be created in the same method as outlined above using a ``PUT`` request to the following endpoint:
 
 **Endpoint:** ``https://auth.titlenova.com/scope/user/<id>``
 
 The creates a specific overriding scope for a user. For example, if a role allows users to delete pages,
-but there is only one user under that role that should not be allowed to delete pages, you can a user-specific
-scope rule to deny only that user from delete pages. That rule will supersede the scope rule on the role level.
+but there is only one user under that role that should not be allowed to delete pages, you can add a user-specific
+scope rule to deny only that user from deleting pages. That rule will supersede the scope rule on the role level.
 
 Adding to Scope
 ---------------
 
 To add to a role or user scope, use a ``PATCH`` request to the following endpoints, respectively:
 
-**Endpoints**
-
-``https://auth.titlenova.com/scope/role/<id>``
-``https://auth.titlenova.com/scope/user/<id>``
+**Endpoints:**
+| ``https://auth.titlenova.com/scope/role/<id>``
+| ``https://auth.titlenova.com/scope/user/<id>``
 
 A single request can only add one scope rule per request:
 
