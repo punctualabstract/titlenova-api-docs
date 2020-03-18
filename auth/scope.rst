@@ -139,13 +139,15 @@ The ``all`` parameter also works in conjunction with the ``flat`` parameter:
     }
 
 To obtain another user's scope, the same ``GET`` requests and parameters are available at this end point:
-``https://auth.titlenova.com/scope/user/<id>``.
+
+**Endpoint** ``https://auth.titlenova.com/scope/user/<id>``.
 
 Create Role Scope
 -----------------
 
 To create a new scope for a role, use the following ``PUT`` request below:
-``https://auth.titlenova.com/scope/role/<id>``
+
+**Endpoint** ``https://auth.titlenova.com/scope/role/<id>``
 
 The layout of the data is such that there is a list of ``resource_id_<i>``, ``action_<i>`` and ``permission_<i>``, where
 ``<i>`` is an incremental integer to keep the data grouped together correctly.
@@ -192,7 +194,8 @@ Create User Scope
 -----------------
 
 User scope can be created in the same method as outlined above using a ``PUT`` request. The endpoint is:
-``https://auth.titlenova.com/scope/user/<id>``
+
+**Endpoint** ``https://auth.titlenova.com/scope/user/<id>``
 
 The creates a specific overriding scope for a user. For example, if a role allows users to delete pages,
 but there is only one user under that role that should not be allowed to delete pages, you can a user-specific
@@ -202,6 +205,9 @@ Adding to Scope
 ---------------
 
 To add to a role or user scope, use a ``PATCH`` request to the following endpoints, respectively:
+
+**Endpoints**
+
 ``https://auth.titlenova.com/scope/role/<id>``
 ``https://auth.titlenova.com/scope/user/<id>``
 
@@ -231,7 +237,8 @@ Deleting Scope Rules
 You can delete individual scope rules to remove certain rules and permissions from a role or user's scope.
 
 **Deleting a single scope rule**
-``https://auth.titlenova.com/scope/permissions/<id>``
+
+**Endpoint** ``https://auth.titlenova.com/scope/permissions/<id>``
 
 .. code-block:: bash
 
@@ -250,6 +257,9 @@ Clearing Scope
 
 You can clear all scope rules for a role or user by submitting a ``DELETE`` request to these end points,
 respectively:
+
+**Endpoints**
+
 ``https://auth.titlenova.com/scope/user/<id>``
 ``https://auth.titlenova.com/scope/role/<id>``
 

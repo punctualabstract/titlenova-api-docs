@@ -10,7 +10,8 @@ List Roles
 ----------
 
 To list a single role in the system, use the following ``GET`` request:
-``https://auth.titlenova.com/roles/<id>``
+
+**Endpoint** ``https://auth.titlenova.com/roles/<id>``
 
 .. code-block:: bash
 
@@ -188,7 +189,8 @@ Update an Existing Role
 -----------------------
 
 To update an existing role, send a ``PATCH`` request with the following payload to the roles endpoint:
-``https://auth.titlenova.com/roles/<id>``
+
+**Endpoint** ``https://auth.titlenova.com/roles/<id>``
 
 .. code-block:: bash
 
@@ -209,7 +211,8 @@ Deleting Roles
 --------------
 
 **Deleting a single role**
-``https://auth.titlenova.com/roles/<id>``
+
+**Endpoint** ``https://auth.titlenova.com/roles/<id>``
 
 .. code-block:: bash
 
