@@ -8,11 +8,12 @@ List Tokens
 -----------
 
 To list information about a single token in the system, use the following ``GET`` request:
+``https://auth.titlenova.com/tokens/<token>``
 
 .. code-block:: bash
 
     curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        http://auth.titlenova/tokens/48f97a0e966ec61324e225a5c2140616e6efa093
+        https://auth.titlenova.com/tokens/48f97a0e966ec61324e225a5c2140616e6efa093
 
 The ``JSON`` response returned will give you information on the token and the user who owns it:
 
@@ -45,7 +46,7 @@ To list all of the tokens currently in the system, use the following ``GET`` req
 .. code-block:: bash
 
     curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        http://auth.titlenova/tokens
+        https://auth.titlenova.com/tokens
 
 The ``JSON`` response returned will look like:
 
@@ -108,7 +109,7 @@ page is calculated by the limit value.)*
 .. code-block:: bash
 
     curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        "http://auth.titlenova/tokens?user_id=1&page=1&limit=25&sort=-id"
+        "https://auth.titlenova.com/tokens?user_id=1&page=1&limit=25&sort=-id"
 
 The returned response would be:
 
@@ -153,7 +154,7 @@ There is also a method to return the number of tokens in the system:
 .. code-block:: bash
 
     curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        http://auth.titlenova/tokens/count
+        https://auth.titlenova.com/tokens/count
 
 .. code-block:: json
 
@@ -167,7 +168,7 @@ That method also supports the above request parameters of ``filter`` and ``user_
 .. code-block:: bash
 
     curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        "http://auth.titlenova/tokens/count?filter[]=username%20LIKE%20ad%"
+        "https://auth.titlenova.com/tokens/count?filter[]=username%20LIKE%20ad%"
 
 .. code-block:: json
 
@@ -183,7 +184,7 @@ And to determine what fields are available for the ``token`` resource, use the f
 .. code-block:: bash
 
     curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        http://auth.titlenova/tokens/fields
+        https://auth.titlenova.com/tokens/fields
 
 .. code-block:: json
 
@@ -207,8 +208,9 @@ Deleting a Token
 ----------------
 
 **Deleting a token**
+``https://auth.titlenova.com/tokens/<token>``
 
 .. code-block:: bash
 
     curl -i -X DELETE --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        http://auth.titlenova/tokens/7f7cbaa7c2073fc5dc38f14a8f8890038fbff919
+        https://auth.titlenova.com/tokens/7f7cbaa7c2073fc5dc38f14a8f8890038fbff919

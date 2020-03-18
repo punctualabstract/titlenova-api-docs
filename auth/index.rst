@@ -28,5 +28,5 @@ The above request will return the following response:
 .. code-block:: json
 
     {
-        "version": "0.0.3"
+        "version": "0.0.4"
     }

@@ -9,11 +9,12 @@ Listing Users
 -------------
 
 To list a single user in the system, use the following ``GET`` request:
+``https://auth.titlenova.com/users/<id>``
 
 .. code-block:: bash
 
     curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        http://auth.titlenova/users/1
+        https://auth.titlenova.com/users/1
 
 The ``JSON`` response returned will look like:
 
@@ -39,7 +40,7 @@ To list all of the users currently in the system, use the following ``GET`` requ
 .. code-block:: bash
 
     curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        http://auth.titlenova/users
+        https://auth.titlenova.com/users
 
 The ``JSON`` response returned will look like:
 
@@ -101,7 +102,7 @@ page is calculated by the limit value.)*
 .. code-block:: bash
 
     curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        "http://auth.titlenova/users?page=1&limit=25&sort=-id&filter[]=username%20LIKE%20ad%"
+        "https://auth.titlenova.com/users?page=1&limit=25&sort=-id&filter[]=username%20LIKE%20ad%"
 
 The returned response would be:
 
@@ -146,7 +147,7 @@ There is also a method to return the number of users in the system:
 .. code-block:: bash
 
     curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        http://auth.titlenova/users/count
+        https://auth.titlenova.com/users/count
 
 .. code-block:: json
 
@@ -160,7 +161,7 @@ That method also supports the above request parameters of ``filter`` and ``role_
 .. code-block:: bash
 
     curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        "http://auth.titlenova/users/count?filter[]=username%20LIKE%20ad%&filter[]=active%20%3D%201"
+        "https://auth.titlenova.com/users/count?filter[]=username%20LIKE%20ad%&filter[]=active%20%3D%201"
 
 .. code-block:: json
 
@@ -177,7 +178,7 @@ And to determine what fields are available for the ``users`` resource, use the f
 .. code-block:: bash
 
     curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        http://auth.titlenova/users/fields
+        https://auth.titlenova.com/users/fields
 
 .. code-block:: json
 
@@ -322,6 +323,7 @@ Update an Existing User
 -----------------------
 
 To update an existing user, send a ``PATCH`` request with the following payload to the users endpoint:
+``https://auth.titlenova.com/users/<id>``
 
 .. code-block:: bash
 
@@ -352,6 +354,7 @@ Revoking a User
 
 If a user that should not have access has gained access to any of the systems, you can revoke that user's
 token with the following request:
+``https://auth.titlenova.com/users/revoke/<id>``
 
 .. code-block:: bash
 
@@ -362,6 +365,7 @@ Deleting Users
 --------------
 
 **Deleting a single user**
+``https://auth.titlenova.com/users/<id>``
 
 .. code-block:: bash
 

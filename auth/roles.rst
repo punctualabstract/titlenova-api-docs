@@ -10,11 +10,12 @@ List Roles
 ----------
 
 To list a single role in the system, use the following ``GET`` request:
+``https://auth.titlenova.com/roles/<id>``
 
 .. code-block:: bash
 
     curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        http://auth.titlenova/roles/1
+        https://auth.titlenova.com/roles/1
 
 The ``JSON`` response returned will look like:
 
@@ -31,7 +32,7 @@ To list all of the roles currently in the system, use the following ``GET`` requ
 .. code-block:: bash
 
     curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        http://auth.titlenova/roles
+        https://auth.titlenova.com/roles
 
 The ``JSON`` response returned will look like:
 
@@ -81,7 +82,7 @@ page is calculated by the limit value.)*
 .. code-block:: bash
 
     curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        "http://auth.titlenova/roles?filter[]=role%20LIKE%20ad%"
+        "https://auth.titlenova.com/roles?filter[]=role%20LIKE%20ad%"
 
 The returned response would be:
 
@@ -114,7 +115,7 @@ There is also a method to return the number of roles in the system:
 .. code-block:: bash
 
     curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        http://auth.titlenova/roles/count
+        https://auth.titlenova.com/roles/count
 
 .. code-block:: json
 
@@ -128,7 +129,7 @@ That method also supports the above request ``filter`` parameter:
 .. code-block:: bash
 
     curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        "http://auth.titlenova/roles/count?filter[]=role%20LIKE%20ad%"
+        "https://auth.titlenova.com/roles/count?filter[]=role%20LIKE%20ad%"
 
 .. code-block:: json
 
@@ -144,7 +145,7 @@ And to determine what fields are available for the ``roles`` resource, use the f
 .. code-block:: bash
 
     curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        http://auth.titlenova/roles/fields
+        https://auth.titlenova.com/roles/fields
 
 .. code-block:: json
 
@@ -165,7 +166,7 @@ Create a role with the following ``POST`` request:
 .. code-block:: bash
 
     curl -i -X POST --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        -d"role=Editor" http://auth.titlenova/roles
+        -d"role=Editor" https://auth.titlenova.com/roles
 
 .. code-block:: json
 
@@ -187,11 +188,12 @@ Update an Existing Role
 -----------------------
 
 To update an existing role, send a ``PATCH`` request with the following payload to the roles endpoint:
+``https://auth.titlenova.com/roles/<id>``
 
 .. code-block:: bash
 
     curl -i -X PATCH --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        -d"role=Editor2" http://auth.titlenova/roles/2
+        -d"role=Editor2" https://auth.titlenova.com/roles/2
 
 Upon a successful update, the response will return a ``JSON`` payload with the role's updated data:
 
@@ -207,15 +209,16 @@ Deleting Roles
 --------------
 
 **Deleting a single role**
+``https://auth.titlenova.com/roles/<id>``
 
 .. code-block:: bash
 
     curl -i -X DELETE --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        http://auth.titlenova/roles/2
+        https://auth.titlenova.com/roles/2
 
 **Deleting multiple roles**
 
 .. code-block:: bash
 
     curl -i -X DELETE --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        -d"rm_roles[]=3&rm_roles[]=4" http://auth.titlenova/roles/
+        -d"rm_roles[]=3&rm_roles[]=4" https://auth.titlenova.com/roles/

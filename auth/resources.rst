@@ -14,11 +14,12 @@ List Resources
 --------------
 
 To list a single resource in the system, use the following ``GET`` request:
+``https://auth.titlenova.com/resources/<id>``
 
 .. code-block:: bash
 
     curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        http://auth.titlenova/resources/2
+        https://auth.titlenova.com/resources/2
 
 The ``JSON`` response returned will look like:
 
@@ -40,7 +41,7 @@ To list all of the resources currently in the system, use the following ``GET`` 
 .. code-block:: bash
 
     curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        http://auth.titlenova/resources
+        https://auth.titlenova.com/resources
 
 The ``JSON`` response returned will look like (intentionally abbreviated):
 
@@ -124,7 +125,7 @@ page is calculated by the limit value.)*
 .. code-block:: bash
 
     curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        "http://auth.titlenova/resources?filter[]=resource%20LIKE%20user%"
+        "https://auth.titlenova.com/resources?filter[]=resource%20LIKE%20user%"
 
 The returned response would be:
 
@@ -180,7 +181,7 @@ There is also a method to return the number of resources in the system:
 .. code-block:: bash
 
     curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        http://auth.titlenova/resources/count
+        https://auth.titlenova.com/resources/count
 
 .. code-block:: json
 
@@ -194,7 +195,7 @@ That method also supports the above request ``filter`` parameter:
 .. code-block:: bash
 
     curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        "http://auth.titlenova/resources/count?filter[]=resource%20LIKE%20user%"
+        "https://auth.titlenova.com/resources/count?filter[]=resource%20LIKE%20user%"
 
 .. code-block:: json
 
@@ -210,7 +211,7 @@ And to determine what fields are available for ``resource``, use the following r
 .. code-block:: bash
 
     curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        http://auth.titlenova/resources/fields
+        https://auth.titlenova.com/resources/fields
 
 .. code-block:: json
 
@@ -230,7 +231,7 @@ Create a resource with the following ``POST`` request:
 .. code-block:: bash
 
     curl -i -X POST --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        -d"resource=orders&actions[]=index&actions[]=create" http://auth.titlenova/resources
+        -d"resource=orders&actions[]=index&actions[]=create" https://auth.titlenova.com/resources
 
 .. code-block:: json
 
@@ -255,12 +256,13 @@ Update an Existing Resource
 ---------------------------
 
 To update an existing resource, send a ``PATCH`` request with the following payload to the resources endpoint:
+``https://auth.titlenova.com/resources/<id>``
 
 .. code-block:: bash
 
     curl -i -X PATCH --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
         -d"resource=orders2&actions[]=index&actions[]=create&actions[]=update&actions[]=delete" \
-        http://auth.titlenova/resources/27
+        https://auth.titlenova.com/resources/27
 
 Upon a successful update, the response will return a ``JSON`` payload with the resource's updated data:
 
@@ -284,15 +286,16 @@ Deleting Resources
 ------------------
 
 **Deleting a single resource**
+``https://auth.titlenova.com/resources/<id>``
 
 .. code-block:: bash
 
     curl -i -X DELETE --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        http://auth.titlenova/resources/27
+        https://auth.titlenova.com/resources/27
 
 **Deleting multiple resource**
 
 .. code-block:: bash
 
     curl -i -X DELETE --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        -d"rm_resources[]=28&rm_resources[]=29" http://auth.titlenova/resources/
+        -d"rm_resources[]=28&rm_resources[]=29" https://auth.titlenova.com/resources/
