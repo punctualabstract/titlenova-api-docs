@@ -196,6 +196,63 @@ And to determine what fields are available for the ``users`` resource, use the f
 
 *(Note: The password field and its value is intentionally omitted from any user result set.)*
 
+Validating a User
+-----------------
+
+**Checking if a user exists**
+
+.. code-block:: bash
+
+    curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
+        https://auth.titlenova.com/users/exists?username=admin
+
+.. code-block:: json
+
+    {
+        "user_exists": true
+    }
+
+**Checking if a username or password passes the security policies**
+
+.. code-block:: bash
+
+    curl -i -X POST --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
+        -d"username=admin&password=123456" http://auth.titlenova/users/validate
+
+.. code-block:: json
+
+    {
+        "username": [
+            "The username must be at least 6 characters.",
+            "That username is not allowed."
+        ],
+        "password": [
+            "The password must be at least 8 characters.",
+            "The password did not meet the required conditions."
+        ]
+    }
+
+If the result returns `That username is not allowed.`, then the attempted username is already
+in use. If you want to validate a set of credentials against an existing user, then pass that
+user's ID along with the request:
+
+.. code-block:: bash
+
+    curl -i -X POST --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
+        -d"username=admin&password=123456" http://auth.titlenova/users/validate/1
+
+.. code-block:: json
+
+    {
+        "username": [
+            "The username must be at least 6 characters."
+        ],
+        "password": [
+            "The password must be at least 8 characters.",
+            "The password did not meet the required conditions."
+        ]
+    }
+
 Create a User
 -------------
 
