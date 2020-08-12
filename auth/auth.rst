@@ -20,7 +20,7 @@ To authenticate a user and get an auth token, a ``POST`` call can be made with a
 
 .. code-block:: bash
 
-    curl -X POST -d"username=admin&password=password" https://auth.titlenova.com/
+    curl -X POST -d"username=admin&password=12345678" https://auth.titlenova.com/
 
 
 That returned response will return the following payload with the token and other necessary information:
