@@ -145,9 +145,9 @@ to fine-tune your request:
 +-------------+---------------------------------------------------------------------------------------+
 | **limit**   | a value by which to limit the result set                                              |
 +-------------+---------------------------------------------------------------------------------------+
-| **sort**    | a flag to sort by a particular field. For example, ``role`` or ``-role`` to sort DESC |
+| **sort**    | a flag to sort by a particular field. For example, ``code`` or ``-code`` to sort DESC |
 +-------------+---------------------------------------------------------------------------------------+
-| **filter**  | a SQL-like filter string. For example, ``role LIKE ad%``                              |
+| **filter**  | a SQL-like filter string. For example, ``code LIKE 40%``                              |
 +-------------+---------------------------------------------------------------------------------------+
 | **fields**  | a comma-separated list of fields to limit which fields are selected                   |
 +-------------+---------------------------------------------------------------------------------------+
@@ -242,7 +242,7 @@ There is also a method to return the number of access log entries in the system:
 
     {
         "filter": null,
-        "role_count": 3111
+        "entry_count": 3111
     }
 
 That method also supports the above request ``filter`` parameter:
@@ -258,7 +258,7 @@ That method also supports the above request ``filter`` parameter:
         "filter": [
             "ip LIKE 127.0.0.%"
         ],
-        "role_count": 2
+        "entry_count": 2
     }
 
 And to determine what fields are available for the ``entries`` resource, use the following request:
@@ -300,7 +300,7 @@ Deleting Access Logs
     curl -i -X DELETE --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
         https://logs.titlenova.com/access/2
 
-**Deleting multiple roles**
+**Deleting multiple access log entries**
 
 .. code-block:: bash
 
