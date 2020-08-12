@@ -23,7 +23,7 @@ This provides a much more robust snapshot of who the user was, where they came f
 what they were trying to do and what the error was that they received.
 
 List Error Logs
-----------------
+---------------
 
 To list a single error log entry in the system, use the following ``GET`` request:
 
@@ -178,7 +178,7 @@ page is calculated by the limit value.)*
 .. code-block:: bash
 
     curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        "https://logs.titlenova.com/error?filter[]=19%20LIKE%20127.0.0.%"
+        "https://logs.titlenova.com/error?filter[]=ip%20LIKE%20127.0.0.%"
 
 The returned response would be:
 
@@ -278,7 +278,7 @@ That method also supports the above request ``filter`` parameter:
 .. code-block:: bash
 
     curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        "https://logs.titlenova.com/error/count?filter[]=19%20LIKE%20127.0.0.%"
+        "https://logs.titlenova.com/error/count?filter[]=ip%20LIKE%20127.0.0.%"
 
 .. code-block:: json
 
@@ -319,7 +319,7 @@ And to determine what fields are available for the ``entries`` resource, use the
     }
 
 Deleting Error Logs
---------------------
+-------------------
 
 **Deleting a single error log entry**
 

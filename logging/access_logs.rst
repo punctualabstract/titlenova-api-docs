@@ -56,7 +56,6 @@ The ``JSON`` response returned will look like:
         "timestamp": "2020-06-02 10:41:50"
     }
 
-
 To list all of the access log entries currently in the system, use the following ``GET`` request:
 
 .. code-block:: bash
@@ -135,7 +134,6 @@ The ``JSON`` response returned will look like:
         ]
     }
 
-
 The returned response not only gives you an array of ``entries``, but also returns other pertinent
 information regarding the request. In addition to the above request, you can pass some parameters
 to fine-tune your request:
@@ -158,7 +156,7 @@ page is calculated by the limit value.)*
 .. code-block:: bash
 
     curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        "https://logs.titlenova.com/access?filter[]=19%20LIKE%20127.0.0.%"
+        "https://logs.titlenova.com/access?filter[]=ip%20LIKE%20127.0.0.%"
 
 The returned response would be:
 
@@ -250,7 +248,7 @@ That method also supports the above request ``filter`` parameter:
 .. code-block:: bash
 
     curl -i -X GET --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
-        "https://logs.titlenova.com/access/count?filter[]=19%20LIKE%20127.0.0.%"
+        "https://logs.titlenova.com/access/count?filter[]=ip%20LIKE%20127.0.0.%"
 
 .. code-block:: json
 
