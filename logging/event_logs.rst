@@ -228,6 +228,38 @@ And to determine what fields are available for the ``entries`` resource, use the
         ]
     }
 
+Creating an Event Log Entry
+----------------------------
+
+You can create an event log entry either via a request using an API key or a request using a user
+auth token. The requests are the same, except for the endpoint URLs are slightly different.
+
+**Using an API key**
+
+**Endpoint:** ``https://logs.titlenova.com/api/event``
+
+- Example API Key: *e6861fe5b6d0e911a6764d04de26b0ff0c08c1ce*
+
+.. code-block:: bash
+
+    curl -i -X POST --header "Authorization: Bearer e6861fe5b6d0e911a6764d04de26b0ff0c08c1ce" \
+        -d"user_id=1&username=admin&host=auth.titlenova&route=/users" https://logs.titlenova.com/api/event
+
+**Using a User Auth Token**
+
+**Endpoint:** ``https://logs.titlenova.com/event``
+
+- Example User Auth Token: *48f97a0e966ec61324e225a5c2140616e6efa093*
+
+.. code-block:: bash
+
+    curl -i -X POST --header "Authorization: Bearer 48f97a0e966ec61324e225a5c2140616e6efa093" \
+        -d"user_id=1&username=admin&ip=127.0.0.1&ua=Mozilla&domain=app.titlenova&route=/users&type=Special&level=5&name=NOTICE&message=Something" \
+        https://logs.titlenova.com/event
+
+The result of both requests are the same. They will produce a ``201`` response with a JSON payload of the
+newly created log entry.
+
 Deleting Event Logs
 -------------------
 
